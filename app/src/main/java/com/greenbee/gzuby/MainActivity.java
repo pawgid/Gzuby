@@ -1,5 +1,7 @@
 package com.greenbee.gzuby;
 
+import android.icu.text.SimpleDateFormat;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +20,13 @@ public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
 
+
+
     @BindView(R.id.text_view)
     TextView textView;
+
+    @BindView(R.id.duration)
+    TextView durationTextView;
 
     @OnClick(R.id.play_button)
     protected void playClick(){
@@ -28,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.incoming);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
+        String duration = new SimpleDateFormat("mm:ss:SS").format(mediaPlayer.getDuration());
+        durationTextView.setText("Dlugosc utworu: " + duration);
         mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
     }
 

@@ -55,6 +55,13 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dlugosc utworu: 00:00:00"
+            android:textColor="#000000"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
