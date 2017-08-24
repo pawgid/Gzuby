@@ -1,6 +1,7 @@
 package com.greenbee.gzuby;
 
 import android.media.MediaPlayer;
+import android.os.PowerManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this, R.raw.incoming);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
+        mediaPlayer.setWakeMode(getApplicationContext(), PowerManager.PARTIAL_WAKE_LOCK);
     }
 
     @OnClick(R.id.stop_button)
